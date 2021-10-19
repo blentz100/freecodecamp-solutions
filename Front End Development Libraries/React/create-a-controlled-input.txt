@@ -11,11 +11,17 @@ class ControlledInput extends React.Component {
   // Change code below this line
   handleChange(event){
     console.log('got inside handleChange')
+    console.log("this.state.input is: ")
+    console.log(this.state.input)
     console.log('event.target.value is: ')
     console.log(event.target.value)
-    this.setState(state => ({
+    
+    //struggled getting this section correct because I was using the syntax from the "Use State to Toggle an ElementPassed" challenge. No need for that complex syntax here because we don't need to know the previous state when updating the state.
+    this.setState({
+      
       input: event.target.value
-    }));
+      
+    });
     console.log("got after the setState");
     console.log("this.state.input is: ")
     console.log(this.state.input)
