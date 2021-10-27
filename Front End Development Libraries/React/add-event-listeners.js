@@ -9,10 +9,11 @@ class MyComponent extends React.Component {
   }
   // Change code below this line
   componentDidMount() {
-    document.addEventListener("keydown", event => {console.log("hi!!!")})
+    document.addEventListener("keydown", this.handleKeyPress)
+    
   }
   componentWillUnmount() {
-
+    document.removeEventListener("keydown", this.handleKeyPress)
   }
   // Change code above this line
   handleEnter() {
@@ -21,6 +22,7 @@ class MyComponent extends React.Component {
     }));
   }
   handleKeyPress(event) {
+    console.log('inside handleKeyPress, event.keyCode is: ' + event.keyCode)
     if (event.keyCode === 13) {
       this.handleEnter();
     }
