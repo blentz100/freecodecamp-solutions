@@ -28,8 +28,11 @@ class MyToDoList extends React.Component {
   }
   render() {
     console.log(this.state.toDoList)
+
+    //had to look at the hints to figure out how to format the li
+    //no backticks, no dollar signs needed
     const items = this.state.toDoList.map(function(element){ 
-      return `<li>${element}</li>`;
+      return (<li>{element}</li>);
     }
     );
     return (
