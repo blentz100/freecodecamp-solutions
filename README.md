@@ -9,5 +9,5 @@ I'm adding the solutions here as a way to continue to practice working with git,
 github and to document my progress. 
 
 <img
-src="https://github.com/blentz100/freecodecamp/images/responsive_cert.png?raw=true"
+src="https://github.com/blentz100/freecodecamp-solutions/blob/main/images/responsive_cert.png?raw=true"
 alt="drawing" width="600"/>
