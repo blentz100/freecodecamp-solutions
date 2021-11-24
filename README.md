@@ -12,3 +12,16 @@ github and to document my progress.
 src="https://github.com/blentz100/freecodecamp-solutions/blob/main/images/responsive_cert.png?raw=true"
 alt="drawing" width="300"/>](https://freecodecamp.org/certification/fccf24ff13b-6c51-46b5-9471-8e3644a03c32/responsive-web-design)
 
+
+#### Notes
+
+Workflow for creating all the filenames from a given section without typing it
+out manually.
+
+- Copy and paste the challenge names from the browser into a vim buffer
+- Use find and replace to get rid of extra stuff: https://linuxize.com/post/vim-find-replace/
+- Use a macro to append .js to each line : https://vim.fandom.com/wiki/Macros
+- Manually put numbers on the front of each line - todo - find an automated
+solution
+- Create a list of filenames from a text file: https://unix.stackexchange.com/questions/456632/create-files-from-a-list-of-text-files
+- Use the GNU version of xargs : https://formulae.brew.sh/formula/findutils
