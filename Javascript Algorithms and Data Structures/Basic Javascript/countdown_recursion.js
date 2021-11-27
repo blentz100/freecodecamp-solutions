@@ -8,7 +8,6 @@
  * kind.
  */
 
-
 function countdown(n){
 
  if (n < 1) {
