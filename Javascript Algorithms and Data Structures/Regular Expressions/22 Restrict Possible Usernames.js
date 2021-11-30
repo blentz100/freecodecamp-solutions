@@ -15,8 +15,15 @@ Usernames have to be at least two characters long. A two-character username can 
 Change the regex userCheck to fit the constraints listed above.
 
 */
+
+// the solution below works for all cases except A1 
+
 let username = "Z97";
-let userCheck = /^[a-z][a-z][a-z]*\d*$/gi; // Change this line
+let userCheck = /^[^\d][a-z]{2,}[0-9]*$|^[a-z]{2}$|^[a-z]+\d+$/i; // Change this line
 let result = userCheck.test(username);
 console.log('myresults:')
 console.log(result)
+
+
+//this solves all except alternating letters and characters in the middle
+//let userCheck = /[A-Z]+[a-z0-9]{2}[0-9]*$|^[a-z]{2}$/i; // Change this line
