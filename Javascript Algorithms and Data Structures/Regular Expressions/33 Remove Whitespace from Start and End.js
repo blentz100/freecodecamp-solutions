@@ -12,10 +12,10 @@ complete this challenge using regular expressions.
 */
 
 //in progress
-let hello = "  Hello, World!      ";
-let wsRegex = /(\s*)(?=.*)(\s*)/; // Change this line
-let result = hello; // Change this line
 
-let myTest = hello.match(wsRegex);
-console.log(myTest)
+let hello = "   Hello, World!  ";
+let wsRegex = /(^\s*)(\b.*\B)(\s*$)/; // Change this line
+let result = hello.replace(wsRegex, ''); // Change this line
 
+console.log(hello.match(wsRegex))
+console.log(result)
