@@ -20,6 +20,7 @@ out manually.
 
 - Copy and paste the challenge names from the browser into a vim buffer
 - Use find and replace to get rid of extra stuff: https://linuxize.com/post/vim-find-replace/
+- Delete all blank lines with: :g\^$\d https://linuxize.com/post/vim-delete-line/#:~:text=%3Ag%2F%5E%24%2Fd%20%2D,characters%20(%20%5Cs*%20).
 - Use a macro to append .js to each line : https://vim.fandom.com/wiki/Macros
 - Manually put numbers on the front of each line - todo - find an automated
 solution
