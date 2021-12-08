@@ -11,11 +11,17 @@ complete this challenge using regular expressions.
 
 */
 
-//in progress
+//had trouble solving this one because I thought we needed to account for any
+//text in the middle matching group. The problem is much easier if I just need
+//to match Hello, World! for the middle group. I added an intermediate variable
+//result1 for troubleshooting purposes
 
 let hello = "   Hello, World!  ";
-let wsRegex = /(^\s*)(\b.*\B)(\s*$)/; // Change this line
-let result = hello.replace(wsRegex, ''); // Change this line
+let wsRegex = /(\s+)(Hello, World!)(\s+)/; // Change this line
+let result1 = hello.match(wsRegex); // Change this line
 
-console.log(hello.match(wsRegex))
+console.log(result1)
+
+let result = hello.replace(wsRegex, '$2')
 console.log(result)
+
