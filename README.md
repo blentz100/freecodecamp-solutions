@@ -23,7 +23,7 @@ alt="drawing" width="500"/>](https://freecodecamp.org/certification/fccf24ff13b-
 
 - Copy and paste the challenge names from the browser into a vim buffer
 - Use find and replace to get rid of extra stuff: ```%s/Not Passed//g``` https://linuxize.com/post/vim-find-replace/
-- Delete all blank lines with: ```:g\^$\d``` https://linuxize.com/post/vim-delete-line/
+- Delete all blank lines with: ```:g/^$/d``` https://linuxize.com/post/vim-delete-line/
 - Use a macro to append .js to each line : https://vim.fandom.com/wiki/Macros
 - Manually put numbers on the front of each line - todo - find an automated
 solution. Make sure to put leading 0s on single digit numbers so it sorts properly
