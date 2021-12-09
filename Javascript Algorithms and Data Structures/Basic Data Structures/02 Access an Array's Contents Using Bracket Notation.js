@@ -35,3 +35,7 @@ let myArray = ["a", "b", "c", "d"];
 myArray[1] = "not b anymore"
 // Only change code above this line
 console.log(myArray);
+
+
+//another way to access elements in an array
+console.log(["a", "b", "c", "d"][0]) //a
