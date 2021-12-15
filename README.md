@@ -21,7 +21,7 @@ alt="drawing" width="500"/>](https://freecodecamp.org/certification/fccf24ff13b-
 
 ### Workflow for populating filenames for all challenges
 
-- Copy and paste the challenge names from the browser into a vim buffer
+- Copy and paste the challenge names from the browser into a vim buffer called ```filenames.txt```
 - Use find and replace to get rid of extra stuff: ```%s/Not Passed//g``` https://linuxize.com/post/vim-find-replace/
 - Delete all blank lines with: ```:g/^$/d``` https://linuxize.com/post/vim-delete-line/
 - Use a macro to append .js to each line (https://vim.fandom.com/wiki/Macros): 
