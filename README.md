@@ -32,8 +32,9 @@ alt="drawing" width="500"/>](https://freecodecamp.org/certification/fccf24ff13b-
     1. ```@@``` repeat last macro
 
 
-- Manually put numbers on the front of each line - todo - find an automated
-solution. Make sure to put leading 0s on single digit numbers so it sorts properly
+- Insert numbers on the front of each line. Make sure to put leading 0s on single digit numbers so it sorts properly
+```:%s/^/\=printf('%02d ', line('.'))``` (https://vim.fandom.com/wiki/Insert_line_numbers)
+
 
 - Create a list of filenames from a text file. [(src)](https://unix.stackexchange.com/questions/456632/create-files-from-a-list-of-text-files) 
   ```console
