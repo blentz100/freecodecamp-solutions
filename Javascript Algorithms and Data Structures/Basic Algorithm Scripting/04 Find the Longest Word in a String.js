@@ -4,9 +4,9 @@ Return the length of the longest word in the provided sentence.
 Your response should be a number.
 
 */
-//in progress, previousValue in reducer is showing up as undefined
-//still working on it,
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+//This video helped on figuring out reduce
+
 function findLongestWordLength(str) {
   //convert str to array
   let strArray = str.split(" ");
@@ -15,15 +15,11 @@ function findLongestWordLength(str) {
   console.log(typeof strArray[0]);
   console.log(strArray[0].length);
 
-  //reducer method
-  const reducer = (word) => {
-    console.log('word is: ' + word); 
-    console.log('word.length is: ' + word.length)
-    const returns = Math.max(previous.length, current.length);
-    return returns;
-    }
-
-  let answer = strArray.reduce(reducer)
+  const answer = strArray.reduce((longest, current) => {
+    console.log(`longest is: ${longest}`);
+    console.log(`current is: ${current}`);
+    return Math.max(longest,current.length)
+  },0)
   return answer;
 }
 
