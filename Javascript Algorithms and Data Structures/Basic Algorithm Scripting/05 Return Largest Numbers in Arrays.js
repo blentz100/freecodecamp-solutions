@@ -14,12 +14,5 @@ function largestOfFour(arr) {
 
 }
 
-
-  /* const answer = strArray.reduce((longest, current) => {
-    console.log(`longest is: ${longest}`);
-    console.log(`current is: ${current}`);
-    return Math.max(longest,current.length)
-  },0) */
-
 console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
 
