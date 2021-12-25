@@ -1,16 +1,9 @@
-/*function truncateString(str, num) {
-  
-  if(str.length > num){
-    let answer = str.slice(0,num);
-    answer = answer + '...';
-    console.log('answer is: ' + answer)
-    return answer;
-  }
-  return str;
-}
+/*
+ * Truncate a String
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
 
-truncateString("A-tisket a-tasket A green and yellow basket", 8);
 */
+
 function truncateString(str, num) {
   
   if(str.length > num){
