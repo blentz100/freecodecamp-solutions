@@ -10,16 +10,15 @@ Hint: Try converting each value to a Boolean.
 // https://www.samanthaming.com/tidbits/19-2-ways-to-convert-to-boolean/
 // could also use Boolean(arr[item])
 
-
 function bouncer(arr) {
   const solutionArr = [];
-  for(item in arr){
-    if(!!arr[item] == true){
-
-      solutionArr.push(arr[item]);
+  for(let i = 0; i < arr.length; i++){
+    if(!!arr[i] == true){
+      solutionArr.push(arr[i]);
     }
   }
   return solutionArr;
 }
 
 console.log(bouncer([7, "ate", "", false, 9]));
+
