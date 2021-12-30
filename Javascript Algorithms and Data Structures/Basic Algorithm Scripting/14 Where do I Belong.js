@@ -20,7 +20,7 @@ function getIndexToIns(arr, num) {
 
   //then find the index to insert
   for(let i = 0; i <= sortedArray.length; i++){
-    if(num < sortedArray[i]){
+    if(num <= sortedArray[i]){
       return i;
     }
   }
