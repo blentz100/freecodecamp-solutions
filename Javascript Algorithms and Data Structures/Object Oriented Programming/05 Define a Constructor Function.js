@@ -19,6 +19,8 @@ Dog, with properties name, color, and numLegs that are set to a string, a
 string, and a number, respectively.
 
 */
+//This article is helpful to shed more light on Javascript Constructor Functions
+//https://www.programiz.com/javascript/constructor-function#:~:text=In%20JavaScript%2C%20a%20constructor%20function%20is%20used%20to%20create%20objects.&text=In%20the%20above%20example%2C%20function,letter%20of%20your%20constructor%20function.
 
 function Dog()  {
   this.name = "Joe";
