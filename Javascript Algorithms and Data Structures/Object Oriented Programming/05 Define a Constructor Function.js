@@ -22,6 +22,11 @@ string, and a number, respectively.
 //This article is helpful to shed more light on Javascript Constructor Functions
 //https://www.programiz.com/javascript/constructor-function#:~:text=In%20JavaScript%2C%20a%20constructor%20function%20is%20used%20to%20create%20objects.&text=In%20the%20above%20example%2C%20function,letter%20of%20your%20constructor%20function.
 
+// Some info on the H symbol in the gutter
+// Tried changing the config to test it, but couldn't get it to change
+// https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#change-diagnostic-symbols-in-the-sign-column-gutter
+
+
 function Dog()  {
   this.name = "Joe";
   this.color = 'red';
