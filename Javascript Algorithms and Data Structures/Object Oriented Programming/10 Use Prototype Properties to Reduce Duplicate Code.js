@@ -34,4 +34,5 @@ let beagle = new Dog("Snoopy");
 
 //not sure why this console.log doesn't also print out numLegs but it passes
 //the tests
+//update - this becomes clear in the next challenge
 console.log(beagle);
