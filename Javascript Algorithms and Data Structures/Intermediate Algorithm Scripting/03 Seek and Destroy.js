@@ -6,17 +6,18 @@ initial array that are of the same value as these arguments.
 
 Note: You have to use the arguments object.
 */
-
 function destroyer(arr) {
   console.log(arguments)
   let initialArray = arguments[0]
   console.log('initialArray is: ' + initialArray)
   
   for(let i = 1; i < arguments.length; i++){
+    console.log(" ")
     console.log("arguments[i] is: " + arguments[i])
-    if(initialArray.includes(arguments[i])){
+    while(initialArray.includes(arguments[i])){
       console.log('i need to remove ' + arguments[i])
-      console.log(initialArray.splice(i,1))
+      console.log(initialArray.splice(initialArray.indexOf(arguments[i]),1))
+      console.log(initialArray)
     }
   }
   return initialArray;
