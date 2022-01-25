@@ -1,0 +1,18 @@
+04 Wherefore art thou.js
+05 Spinal Tap Case.js
+06 Pig Latin.js
+07 Search and Replace.js
+08 DNA Pairing.js
+09 Missing letters.js
+10 Sorted Union.js
+11 Convert HTML Entities.js
+12 Sum All Odd Fibonacci Numbers.js
+13 Sum All Primes.js
+14 Smallest Common Multiple.js
+15 Drop it.js
+16 Steamroller.js
+17 Binary Agents.js
+18 Everything Be True.js
+19 Arguments Optional.js
+20 Make a Person.js
+21 Map the Debris.js
