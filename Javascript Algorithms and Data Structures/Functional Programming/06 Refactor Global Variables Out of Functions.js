@@ -26,27 +26,41 @@ added before the bookName parameter.
 // The global variable
 const bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
 
-// Change code below this line
-function add(myBookList, bookName) {
+//This article helped me figure out how to make a copy of the array with making a reference to it
+//I was stuck on that for a while
+// https://www.samanthaming.com/tidbits/35-es6-way-to-clone-an-array/
+// the key was using the spread operator
 
+// Change code below this line
+function add(incomingBookList, bookName) {
+  const myBookList = [...incomingBookList];
+  console.log("++++++ top of add function ");
+  console.log("myBookList is: " + myBookList);
+  console.log("bookName is: " + bookName);
+  console.log("bookList is: " + bookList);
   myBookList.push(bookName);
+  console.log("++++++ after pushing the book ")
+  console.log("myBookList is: " + myBookList);  
+  console.log("bookName is: " + bookName);
+  console.log("bookList is: " + bookList);
+
+  console.log("++++++ bottom of add function ")
   return myBookList;
   
   // Change code above this line
 }
 
 // Change code below this line
-function remove(bookName) {
-  const book_index = bookList.indexOf(bookName);
+function remove(myBookList, bookName) {
+  const book_index = myBookList.indexOf(bookName);
   if (book_index >= 0) {
 
-    bookList.splice(book_index, 1);
-    return bookList;
+    myBookList.splice(book_index, 1);
+    return myBookList;
 
     // Change code above this line
     }
 }
-
 const newBookList = add(bookList, 'A Brief History of Time');
 const newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
 const newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
