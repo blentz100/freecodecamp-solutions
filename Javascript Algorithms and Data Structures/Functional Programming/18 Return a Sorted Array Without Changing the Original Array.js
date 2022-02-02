@@ -18,6 +18,12 @@ function nonMutatingSort(arr) {
   // do this to avoid mutating the original array
   let newArr = [...arr]
 
+  // this next line would also solve the same problem
+  // let newArr = arr.concat([])
+
+  // and this line would not work because it would modify the origninal arr
+  // let newArr = arr
+
   return newArr.sort(function(a, b) {
     console.log('a is: ' + a)
     console.log('b is: ' + b)
