@@ -26,7 +26,14 @@ function splitify(str) {
   // Only change code below this line
   let newArr = str.split(/\s|-|,|\./)
 
+  //additional solution idea 1 from fcc
+  //let newarr = str.split(/\w/)
+
+  //additional solution idea 2 from fcc
+  //let newarr = str.split(/[^A-Za-z0-9_]/)
+
   return newArr
+  
   // Only change code above this line
 }
 
