@@ -13,24 +13,28 @@ that was passed on as the second argument.
 
 function whatIsInAName(collection, source) {
   const arr = [];
+  console.log('source is: ' + JSON.stringify(source) + '\n')
   // Only change code below this line
   for(let i = 0; i < collection.length; i++){
-    console.log('collection[i] is: ')
-    console.log(collection[i]);
-    console.log('source is: ')
-    console.log(source)
-    console.log('Object.fromEntries(collection[i]) is:')
-    console.log(Object.fromEntries(collection[i]))
-    
-    /*if(Object.entries(collection[i]).includes(source)){
-      console.log('XXXXXXXXXXXXXXXX')
-    }*/
-  }
+    console.log('collection[i] is: ' + JSON.stringify(collection[i]))
 
+    for(const [key,value] of Object.entries(collection[i])){
+      console.log(`${key}: ${value}`)
+      let newObject = {}
+      //when creating the newObject, need to account for cases where there are multiple key value pairs
+      newObject[key] = value;
+      if(JSON.stringify(newObject) === JSON.stringify(source)){
+        //when checking for a match, need to make sure all key value pairs in source match the target before declaring a match and pushing the data into the solution array
+        console.log("found a match!!!!!!")
+        arr.push(collection[i])
+        break;
+      }    
+    }
+  }
+  console.log(" ")
   // Only change code above this line
   return arr;
 }
 
-//whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
 
-whatIsInAName([{ first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
