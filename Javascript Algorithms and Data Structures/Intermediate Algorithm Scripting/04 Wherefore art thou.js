@@ -13,11 +13,12 @@ that was passed on as the second argument.
 
 function whatIsInAName(collection, source) {
   const arr = [];
+  let propertyMatchCounter = 0;
   console.log('source is: ' + JSON.stringify(source) + '\n')
   // Only change code below this line
   for(let i = 0; i < collection.length; i++){
     console.log('\ncollection[' + i + '] is: ' + JSON.stringify(collection[i]))
-
+    console.log('Object.keys(collection[i].length is: ' + Object.keys(collection[i]).length);
     //need to iterate over each of the key value pairs in source
     for(let name in source){
       console.log('name is: ' + name)
@@ -28,29 +29,17 @@ function whatIsInAName(collection, source) {
 
       
       if(collection[i].hasOwnProperty(name)){
-        console.log('match!');
+        console.log('single match!');
+        propertyMatchCounter++; 
       }
-
-    }
-
-    for(const [key,value] of Object.entries(collection[i])){
-      console.log(`${key}: ${value}`)
-      let newObject = {}
-      //when creating the newObject, need to account for cases where there are multiple key value pairs
-      newObject[key] = value;
-      if(JSON.stringify(newObject) === JSON.stringify(source)){
-        //when checking for a match, need to make sure all key value pairs in source match the target before declaring a match and pushing the data into the solution array
-        console.log("found a match!!!!!!")
-        arr.push(collection[i])
-        break;
-      }    
+      if(propertyMatchCounter === Object.keys(collection[i]).length) {
+        arr.push(collection[i]);
+        console.log('total match');
+      }
     }
   }
-  console.log(" ")
-  // Only change code above this line
   return arr;
 }
 
-whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2,
-"cookie": 2 }], { "apple": 1, "bat": 2 });
-
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1,
+"bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
