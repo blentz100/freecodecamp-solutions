@@ -16,7 +16,22 @@ function whatIsInAName(collection, source) {
   console.log('source is: ' + JSON.stringify(source) + '\n')
   // Only change code below this line
   for(let i = 0; i < collection.length; i++){
-    console.log('collection[i] is: ' + JSON.stringify(collection[i]))
+    console.log('\ncollection[' + i + '] is: ' + JSON.stringify(collection[i]))
+
+    //need to iterate over each of the key value pairs in source
+    for(let name in source){
+      console.log('name is: ' + name)
+      console.log('name.value is: ' + source[name]);
+
+      //then check to see if each one is in the collection[i]
+      //if yes, then push collection[i] to the soluttion array
+
+      
+      if(collection[i].hasOwnProperty(name)){
+        console.log('match!');
+      }
+
+    }
 
     for(const [key,value] of Object.entries(collection[i])){
       console.log(`${key}: ${value}`)
@@ -36,5 +51,6 @@ function whatIsInAName(collection, source) {
   return arr;
 }
 
-whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2,
+"cookie": 2 }], { "apple": 1, "bat": 2 });
 
