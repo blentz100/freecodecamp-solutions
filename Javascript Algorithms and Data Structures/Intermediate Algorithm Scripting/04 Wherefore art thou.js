@@ -40,9 +40,8 @@ function whatIsInAName(collection, source) {
       }
 
       //this should only fire if all props in source match collection[i]
-      // in this example were are getting in here on the collection[1] iteration but shouldn't be
-      // the reason is that when we only have one source key/value pair, it can be a false positive
-      if(propertyMatchCounter === Object.keys(collection[i]).length) {
+      // was having an issue with this because I was testing agains the length of the object at collection[i], once I changed that to the length of the source object it fixed the problem.
+      if(propertyMatchCounter === Object.keys(source).length) {
         arr.push(collection[i]);
         console.log('FULL MATCH!');
       }
@@ -51,7 +50,6 @@ function whatIsInAName(collection, source) {
   }
   return arr;
 }
-
 console.log(whatIsInAName([
   { "apple": 1, "bat": 2 }, 
   { "bat": 2 }, 
