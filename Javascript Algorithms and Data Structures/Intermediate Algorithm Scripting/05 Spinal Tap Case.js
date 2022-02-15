@@ -1,15 +1,10 @@
-/*Spinal Tap Case
-Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
-*/
-
-
-
 function spinalCase(str) {
 
   //iterate over the string and add dashes if the case changes to break it up into words
   let solutionStr = str;
+  let upperLimit = str.length;
 
-  for(let i = 0; i < str.length; i++){
+  for(let i = 0; i < upperLimit; i++){
     let currentLetter = str[i];
     let nextLetter = str[i+1];
 
@@ -29,16 +24,22 @@ function spinalCase(str) {
     else{
       nextLetterCase = 'upper'
     }
-    //console.log('current letter is: ' + currentLetter + ". and the case is: " + currentLetterCase);
-    //console.log('next letter is: ' + nextLetter + ". and the case is: " + nextLetterCase);
 
     //if current is lower and next is upper, we need to insert a dash
     if(currentLetterCase == "lower" && nextLetterCase == 'upper'){
-      console.log('now we need to insert a dash')
-      solutionStr = solutionStr.slice(0,i+1) + "-" + solutionStr.slice(i+1);
-      
+      //this part is working correctly
+      console.log('\nnow we need to insert a dash because:')
+      console.log('currentLetter is: ' + currentLetter + '  nextLetter is: ' + nextLetter)
+      i++
+
+      //the slicing is not working right after the first iteration
+      //maybe splicing is the better solution?
+      console.log(solutionStr.slice(0,i))
+      console.log(str.slice(i))
+      solutionStr = solutionStr.slice(0,i) + "-" + str.slice(i);
+     
       console.log('*******')
-      console.log(solutionStr)
+      console.log('solutionStr is: ' + solutionStr)
       console.log('*******')
     }
 
@@ -48,3 +49,4 @@ function spinalCase(str) {
 }
 
 console.log(spinalCase('ThisIsSpinalTap'));
+
