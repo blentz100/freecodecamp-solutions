@@ -1,49 +1,46 @@
 function spinalCase(str) {
 
-  //iterate over the string and add dashes if the case changes to break it up into words
-  let solutionStr = str;
-  let upperLimit = str.length;
+  
+  //convert str to array to allow us to splice it
+  let strArray = str.split("");
 
-  for(let i = 0; i < upperLimit; i++){
-    let currentLetter = str[i];
-    let nextLetter = str[i+1];
+  //iterate over the string and add dashes if the case changes to break it up into words
+  for(let i = 0; i < strArray.length - 1; i++){
+    let currentLetter = strArray[i];
+    let nextLetter = strArray[i+1];
 
     let currentLetterCase = "";
     let nextLetterCase = "";
 
-    if(str[i] == str[i].toLowerCase()){
+    if(currentLetter == currentLetter.toLowerCase()){
       currentLetterCase = 'lower';
     }
     else{
       currentLetterCase = 'upper'
     }
-
-    if(str[i+1] == str[i+1].toLowerCase()){
+    if(nextLetter == nextLetter.toLowerCase()){
       nextLetterCase = 'lower';
     }
     else{
       nextLetterCase = 'upper'
     }
+    //console.log('current letter is: ' + currentLetter + ". and the case is: " + currentLetterCase);
+    //console.log('next letter is: ' + nextLetter + ". and the case is: " + nextLetterCase);
 
     //if current is lower and next is upper, we need to insert a dash
     if(currentLetterCase == "lower" && nextLetterCase == 'upper'){
-      //this part is working correctly
-      console.log('\nnow we need to insert a dash because:')
-      console.log('currentLetter is: ' + currentLetter + '  nextLetter is: ' + nextLetter)
+      console.log('*******')
+      console.log('now we need to insert a dash with splice')
+      strArray.splice(i+1,0,'-')
+      console.log("strArray: " + strArray)
+      console.log('*******\n')
+      //need to increment i by 1 since we just made the array longer by 1, so we don't cause
+      //and infinite loop
       i++
-
-      //the slicing is not working right after the first iteration
-      //maybe splicing is the better solution?
-      console.log(solutionStr.slice(0,i))
-      console.log(str.slice(i))
-      solutionStr = solutionStr.slice(0,i) + "-" + str.slice(i);
-     
-      console.log('*******')
-      console.log('solutionStr is: ' + solutionStr)
-      console.log('*******')
     }
-
   }
+  let solutionStr = strArray.join("");
+  console.log('solutionStr is: ' + solutionStr)
   //return str.split(/\/).join("-").toLowerCase();
   return 9999
 }
