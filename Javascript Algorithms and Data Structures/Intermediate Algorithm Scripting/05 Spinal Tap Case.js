@@ -1,16 +1,27 @@
+/*
+ * Spinal Tap Case
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+*/
+
+
 function spinalCase(str) {
 
   
   //convert str to array to allow us to splice it
   let strArray = str.split("");
 
-  //iterate over the string and add dashes if the case changes to break it up into words
+  //iterate over the string and add dashes if the case changes to break it up into words, but don't add a dash in spots it already exists
   for(let i = 0; i < strArray.length - 1; i++){
     let currentLetter = strArray[i];
     let nextLetter = strArray[i+1];
 
     let currentLetterCase = "";
     let nextLetterCase = "";
+
+    //if the currentLetter is already a space or underscore, don't worry about adding a dash here, we will handle that at the very end when we split the string and join it with dashes in place. Maybe we could have handled everything at the end with a split and join, but I didn't know how to handle the case of nothing separating the words except seeing a lowercase letter and then an upperCase letter
+    if (currentLetter == "_" | currentLetter == " "){
+      continue;
+    }
 
     if(currentLetter == currentLetter.toLowerCase()){
       currentLetterCase = 'lower';
@@ -40,10 +51,10 @@ function spinalCase(str) {
     }
   }
   let solutionStr = strArray.join("");
-  console.log('solutionStr is: ' + solutionStr)
-  //return str.split(/\/).join("-").toLowerCase();
-  return 9999
+  console.log('solutionStr is: ' + solutionStr.toLowerCase())
+  return solutionStr.split(/-|_|\s/).join("-").toLowerCase();
 }
 
-console.log(spinalCase('ThisIsSpinalTap'));
+console.log(spinalCase('This Is Spinal Tap'));
+
 
