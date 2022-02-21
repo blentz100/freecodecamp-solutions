@@ -29,20 +29,35 @@ function myReplace(str, before, after) {
   }
   if(after[0].toLowerCase() === after[0]){
     console.log('after is already lower')
-    after = 'lower';
+    afterCase = 'lower';
   }
   else{
     console.log('after is already upper')
-    after = "upper";
+    afterCase = "upper";
   }
 
-  if(beforeCase !== afterCase){
-    //in here change the case to match
+  let finalAfter = "";
+
+  if(beforeCase == "upper"){
+    console.log('got into first if');
+    let newAfter = after.split("");
+    newAfter[0] = newAfter[0].toUpperCase();
+    finalAfter = newAfter.join("");
+    console.log("finalAfter", finalAfter);
+  }
+  else if(beforeCase == "lower"){
+    console.log('got into 2nd if');
+    let newAfter = after.split("");
+    newAfter[0] = newAfter[0].toLowerCase();
+    finalAfter = newAfter.join("");
+    console.log("finalAfter", finalAfter);
   }
 
   //then perform the search and replace with the new after
 
-  return str;
+  console.log("str", str);
+  console.log("before", before, "finalAfter", finalAfter)
+  return str.replace(before, finalAfter);
 }
 
-myReplace("A quick brown fox jumped over the lazy dog", "Jumped", "Leaped");
+console.log(myReplace("A quick brown fox jumped over the lazy dog", "Jumped", "leaped"));
