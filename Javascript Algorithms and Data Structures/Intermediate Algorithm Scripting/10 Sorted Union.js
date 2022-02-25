@@ -25,14 +25,16 @@ function uniteUnique(arr) {
     console.log('** top of outer for loop ** ')
     console.log("attempting to join: " + arguments[i] + " with: " + arguments[i+1]);
 
+    //create a blank solutionArray to hold the answer
+    let solutionArray = [];
+
     for(let j = 0; j < arguments[i].length; j++){
       console.log("\t * top of inner for loop *"); 
-      //here's the algorithm: take everything in the first array and that gets
-      //included. 
-      //tempArray = arguments[i];
-      
-      //Then, add everything from the second array to that, unless
-      //it's a duplicate
+      //here's the algorithm: 
+      //maybe we can just merge all the arrays together to create one long array
+      //and then iterate over that array checking for duplicates at each index?
+      //maybe use a filter function to to this?
+
       if(!arguments[i+1].includes(arguments[i][j])){
         //push that unique value into a temp array
         tempArray.push(arguments[i][j])
@@ -41,7 +43,8 @@ function uniteUnique(arr) {
       console.log("\t * bottom of inner for loop *"); 
     }
 
-    console.log("tempArray is ", tempArray)
+    console.log("tempArray is       :", tempArray)
+    console.log("tempArray should be: [1, 3, 2, 5, 4]")
   console.log("** bottom of outer for loop **\n")
   }
 
