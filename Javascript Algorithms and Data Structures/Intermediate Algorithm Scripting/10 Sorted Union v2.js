@@ -16,9 +16,8 @@ function uniteUnique(arr) {
 
   let combinedArray = [];
 
-  for(let i = 0; i < arr.length; i++){
+  for(let i = 0; i < arr.length - 1; i++){
     console.log('** top of outer for loop ** ')
-
     for(let j = 0; j < arguments[i].length; j++){
       console.log("\t * top of inner for loop *"); 
       // merge all the arrays together to create one long array
@@ -28,11 +27,19 @@ function uniteUnique(arr) {
     console.log("combinedArray is:" + combinedArray)
   console.log("** bottom of outer for loop **\n")
   }
-
+  let tempArray = [];
   //now use a filter method on the merged array to remove duplicates
-  //let filteredArray = combinedArray....
+  //this is probably not the ideal way to use filter but it seems to be working
+  let filteredArray = combinedArray.filter(number => {
+    if(tempArray.includes(number)){
+      console.log("got into if");
+      return;
+    }
+    tempArray.push(number);
+    return number;
+  });
 
-  return 99999;
+  return filteredArray;;
 }
 
-uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+console.log(uniteUnique([1, 2, 3] , [5,2,1]));
