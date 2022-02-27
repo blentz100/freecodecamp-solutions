@@ -13,16 +13,15 @@ Check the assertion tests for examples.
 */
 
 function uniteUnique(arr) {
-
+  console.log("__________");
+  console.log('arguments is');
+  console.log(arguments);
   let combinedArray = [];
-
-  for(let i = 0; i < arr.length - 1; i++){
-    console.log('** top of outer for loop ** ')
+  for(let i = 0; i < arguments.length; i++){
+  console.log("** top of outer for loop **\n")
     for(let j = 0; j < arguments[i].length; j++){
-      console.log("\t * top of inner for loop *"); 
       // merge all the arrays together to create one long array
       combinedArray.push(arguments[i][j]);
-      console.log("\t * bottom of inner for loop *"); 
     }
     console.log("combinedArray is:" + combinedArray)
   console.log("** bottom of outer for loop **\n")
@@ -38,8 +37,6 @@ function uniteUnique(arr) {
     tempArray.push(number);
     return number;
   });
-
-  return filteredArray;;
+  return filteredArray;
 }
-
-console.log(uniteUnique([1, 2, 3] , [5,2,1]));
+console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]));
