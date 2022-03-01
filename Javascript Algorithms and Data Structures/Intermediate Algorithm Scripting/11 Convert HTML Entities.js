@@ -17,6 +17,18 @@ function convertHTML(str) {
       case "&" :
         answerArray.push("&amp;")
         break;
+      case "<" :
+        answerArray.push("&lt;");
+        break;
+      case ">" :
+        answerArray.push("&gt;");
+        break;
+      case "\"" :
+        answerArray.push("&quot;");
+        break;
+      case "\'" :
+        answerArray.push("&apos;");
+        break;
       default:
         answerArray.push(newArray[i]);
         break;   
