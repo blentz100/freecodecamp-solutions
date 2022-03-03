@@ -11,28 +11,30 @@ For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less
 than or equal to 10 are 1, 1, 3, and 5.
 */
 
-//still working on getting the fibonacci sequence correct, I'm missing the
-//initial 1 in the sequence
 function sumFibs(num) {
-  
-  
-  let fiboOne = 0;
-  let fiboTwo = 1;
+  let fiboOne = 1;
+  let fiboTwo = 0;
   let runningTotal = 0;
-  let fiboThree = 1;
+  let fiboThree = 0;
   //create a loop to calculuate all the Fibonacci numbers
-  for(let i = 1; i < 10; i++){
+  for(let i = 1; i < num; i++){
     fiboThree = fiboOne + fiboTwo;
   
-    //inside that loop, keep a running total of the sum
-
-    runningTotal += fiboThree;
+    //inside that loop, keep a running total of the sum of all odd Fibos
+    if(fiboThree % 2 == 1){
+      runningTotal += fiboThree;
+    }
     console.log('fibonacci Number is: ' + fiboThree);
     console.log('runningTotal is: ' + runningTotal);
 
-    //once we cross over the upper limit, return the next previous highest sum
+    //this is the part to make the Fibonacci sequence happen
     fiboOne = fiboTwo;
     fiboTwo = fiboThree;
+
+    //once we cross over the upper limit, return the next previous highest sum
+    if(runningTotal >= num){
+      return runningTotal;
+    }
 
   }
 
@@ -40,5 +42,5 @@ function sumFibs(num) {
   return num;
 }
 
-sumFibs(4);
+console.log('answer is: ' + sumFibs(1000));
 
