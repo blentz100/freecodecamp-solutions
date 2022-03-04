@@ -16,17 +16,23 @@ function sumFibs(num) {
   let fiboTwo = 0;
   let runningTotal = 0;
   let fiboThree = 0;
+  let fiboSequence = [];
   //create a loop to calculuate all the Fibonacci numbers
   for(let i = 1; i < num; i++){
+    console.log('*top of loop*');
     fiboThree = fiboOne + fiboTwo;
+
   
     //inside that loop, keep a running total of the sum of all odd Fibos
     if(fiboThree % 2 == 1){
       runningTotal += fiboThree;
+      fiboSequence.push(fiboThree);
     }
+    
+    console.log(fiboSequence);
+    console.log('runningTotal is    : ' + runningTotal);
     console.log('fibonacci Number is: ' + fiboThree);
-    console.log('runningTotal is: ' + runningTotal);
-
+    console.log('num (upper limit)is: ' + num);
     //this is the part to make the Fibonacci sequence happen
     fiboOne = fiboTwo;
     fiboTwo = fiboThree;
@@ -35,12 +41,9 @@ function sumFibs(num) {
     if(runningTotal >= num){
       return runningTotal;
     }
-
+    console.log("*bottom of loop*\n");
   }
-
-
   return num;
 }
-
-console.log('answer is: ' + sumFibs(1000));
+console.log('answer is: ' + sumFibs(75024));
 
