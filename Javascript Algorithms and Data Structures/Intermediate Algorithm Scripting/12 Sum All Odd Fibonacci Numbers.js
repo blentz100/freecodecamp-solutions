@@ -16,34 +16,42 @@ function sumFibs(num) {
   let fiboTwo = 0;
   let runningTotal = 0;
   let fiboThree = 0;
-  let fiboSequence = [];
+  let previousRunningTotal = 0;
+  let fibs = []
   //create a loop to calculuate all the Fibonacci numbers
-  for(let i = 1; i < num; i++){
-    console.log('*top of loop*');
+  for(let i = 1; i <= num; i++){
+    console.log('*top')
     fiboThree = fiboOne + fiboTwo;
 
-  
     //inside that loop, keep a running total of the sum of all odd Fibos
     if(fiboThree % 2 == 1){
+      previousRunningTotal = runningTotal;
       runningTotal += fiboThree;
-      fiboSequence.push(fiboThree);
+      fibs.push(fiboThree)
     }
-    
-    console.log(fiboSequence);
-    console.log('runningTotal is    : ' + runningTotal);
+    console.log('fibs is: ' + fibs)
     console.log('fibonacci Number is: ' + fiboThree);
-    console.log('num (upper limit)is: ' + num);
+    console.log('previousRunningTotal: ' + previousRunningTotal);
+    console.log('runningTotal is: ' + runningTotal);
+    console.log('upper limit is: ' + num)
     //this is the part to make the Fibonacci sequence happen
     fiboOne = fiboTwo;
     fiboTwo = fiboThree;
 
+    console.log('*bottom \n')
     //once we cross over the upper limit, return the next previous highest sum
-    if(runningTotal >= num){
-      return runningTotal;
+    if(runningTotal > num){
+
+      // here we want to return the sum of all odd Fibos that are less than or equal to num
+      //so maybe do a reduce or filter method on the fibos array, and return that
+      //I don't think my variables previousRunningTotal or runningTotal are actually calculating that value
+      console.log('**got inside if**')
+      return previousRunningTotal;
     }
-    console.log("*bottom of loop*\n");
+
   }
+  //we need this for the case of 1
   return num;
 }
-console.log('answer is: ' + sumFibs(75024));
 
+console.log('answer is: ' + sumFibs(4));
