@@ -19,7 +19,7 @@ function sumFibs(num) {
   let previousRunningTotal = 0;
   let fibs = []
   //create a loop to calculuate all the Fibonacci numbers
-  for(let i = 1; i <= num; i++){
+  for(let i = 1; i <= num +1; i++){
     console.log('*top')
     fiboThree = fiboOne + fiboTwo;
 
@@ -40,18 +40,12 @@ function sumFibs(num) {
 
     console.log('*bottom \n')
     //once we cross over the upper limit, return the next previous highest sum
-    if(runningTotal > num){
-
-      // here we want to return the sum of all odd Fibos that are less than or equal to num
-      //so maybe do a reduce or filter method on the fibos array, and return that
-      //I don't think my variables previousRunningTotal or runningTotal are actually calculating that value
+    if(fiboThree > num){
       console.log('**got inside if**')
       return previousRunningTotal;
     }
-
   }
   //we need this for the case of 1
   return num;
 }
-
 console.log('answer is: ' + sumFibs(4));
