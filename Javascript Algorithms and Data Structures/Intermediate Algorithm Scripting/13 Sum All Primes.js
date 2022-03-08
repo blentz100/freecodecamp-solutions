@@ -9,26 +9,29 @@ or equal to num.
 */
 
 function sumPrimes(num) {
-  let iIsPrime = false;
-
   // print out all primes up to num
-
   //sum those primes and return it
-
+  let primeTestCounter = 0;
+  let sumOfPrimes = 0;
 
   for (let i = 2; i < num; i++){
     console.log('*top');
-    isIsPrime = true;
-    for (j = 2; j <= i; j++){
-      if((i % j == 0) && (i !== j)  ){
-        console.log(i + ' is not prime');
-        iIsPrime = false; 
+    primeTestCounter = 0; 
+    for (let j = 1; j <= i; j++){
+      console.log(i + " % " + j + " == " + (i % j))
+      if(i % j == 0 ){
+        console.log(i + " % " + j + " == true" );
+        console.log(i + ' fails this prime test');
+        primeTestCounter++; 
       }
     }
-    console.log( i + '  iIsPrime is: ' + iIsPrime);
+    if(primeTestCounter == 2){
+      console.log('we found a prime'); 
+      sumOfPrimes += i;
+    }
   console.log('*bottom\n');
   }
-  return num;
+  return sumOfPrimes;
 }
 
-sumPrimes(10);
+console.log(sumPrimes(977));
