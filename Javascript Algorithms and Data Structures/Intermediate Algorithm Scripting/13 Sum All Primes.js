@@ -14,22 +14,22 @@ function sumPrimes(num) {
   let primeTestCounter = 0;
   let sumOfPrimes = 0;
 
-  for (let i = 2; i < num; i++){
-    console.log('*top');
+  for (let i = 2; i <= num; i++){
+    //console.log('*top');
     primeTestCounter = 0; 
     for (let j = 1; j <= i; j++){
-      console.log(i + " % " + j + " == " + (i % j))
+      //console.log(i + " % " + j + " == " + (i % j))
       if(i % j == 0 ){
-        console.log(i + " % " + j + " == true" );
-        console.log(i + ' fails this prime test');
+        /* console.log(i + " % " + j + " == true" );
+        console.log(i + ' fails this prime test'); */
         primeTestCounter++; 
       }
     }
     if(primeTestCounter == 2){
-      console.log('we found a prime'); 
+      console.log(i); 
       sumOfPrimes += i;
     }
-  console.log('*bottom\n');
+      //console.log('*bottom\n');
   }
   return sumOfPrimes;
 }
