@@ -14,26 +14,35 @@ would be 6.
 */
 
 function smallestCommons(arr) {
-  let lowNum = arr[0];
-  let highNum = arr[1];
+  let firstNum = arr[0];
+  let secondNum = arr[1];
 
   // first we need to put the incoming array in order
   let sortedArray = arr.sort(function(a, b){return a-b})
   console.log(sortedArray);
 
-  // come up with an algorithm for finding the multiples of two given numbers
-  // first
- 
-  for(let i = 0; i < 15; i++){
-    let commonMultiple = 0;
-    // first divide highNum by lowNum and if modoluo is 0, then it's a hit 
-
+  //this for loop will print out the multiples of the two numbers, in order 
+  let j = 1;
+  let k = 1;
+  for(let i = 1; i < 15; i++){
+    if(firstNum * j < secondNum * k){
+      console.log(firstNum *j)
+      j++
+    }
+    else{
+      console.log(secondNum * k)
+      k++
+    }
   }
+
+  // next assign each one to a variable, and see if it's divisible by both each
+  // time through the for loop, if it is, it's a match
+
 
   // then add a helper function that returns true if all the intermediate
   // numbers are evenly divisible by the multiple, as soon as that returns TRU
   // we have found the solution
   return arr;
 }
-smallestCommons([3,6]);
+smallestCommons([3,7]);
 
