@@ -13,8 +13,6 @@ would be 6.
 
 */
 function smallestCommons(arr) {
- 
-
   // first we need to put the incoming array in order
   let sortedArray = arr.sort(function(a, b){return a-b})
   console.log(sortedArray);
@@ -23,10 +21,8 @@ function smallestCommons(arr) {
   let secondNum = sortedArray[1];
 
   //this for loop will print out the multiples of the two numbers, in order
-  let j = 1;
-  let k = 1;
-  let currentMultiple = 0;
-  while(true){
+  let j = 1, k = 1, currentMultiple = 0, matchCounter = 0;
+  while(matchCounter < (secondNum - firstNum) ){
     if(firstNum * j < secondNum * k){
       //console.log(firstNum *j)
       currentMultiple = firstNum * j;
@@ -37,33 +33,24 @@ function smallestCommons(arr) {
       currentMultiple = secondNum * k;
       k++
     }
+    //find the common multiples of both numbers
     let flag = false;
     if((currentMultiple % firstNum == 0) && (currentMultiple % secondNum == 0) ){
-      console.log('we found the lowest common multiple evenly divide by both parameters: ' + currentMultiple)
+      console.log('we found a common multiple of both numbers: ' + currentMultiple)
       flag = true;
     }
-    let matchCounter = 0;
-  for(let m = firstNum + 1; m <= secondNum -1; m++){
-    if(currentMultiple % m == 0){
-      console.log(currentMultiple + " currentMultiple % " + m + " == 0")
-      matchCounter++;
+    matchCounter = 0;
+    //check of all the sequential numbers can be evenly divided also
+    for(let m = firstNum + 1; m <= secondNum -1; m++){
+      if(currentMultiple % m == 0){
+        console.log(currentMultiple + " currentMultiple % " + m + " == 0")
+        matchCounter++;
+      }
+      if(matchCounter == (secondNum - firstNum - 1) && flag == true){
+        return currentMultiple;
+      }
     }
-    if(matchCounter == (secondNum - firstNum - 1) && flag == true){
-      return currentMultiple;
-    }
-
   }
-  
-  }
-
-  // next assign each one to a variable, and see if it's divisible by both each
-  // time through the for loop, if it is, it's a match
-
-
-  // then add a helper function that returns true if all the intermediate
-  // numbers are evenly divisible by the multiple, as soon as that returns TRU
-  // we have found the solution
-  return arr;
 }
-smallestCommons([1,5]);
+smallestCommons([23,18]);
 
