@@ -12,27 +12,48 @@ that is also evenly divisible by all numbers between 1 and 3. The answer here
 would be 6.
 
 */
-
 function smallestCommons(arr) {
-  let firstNum = arr[0];
-  let secondNum = arr[1];
+ 
 
   // first we need to put the incoming array in order
   let sortedArray = arr.sort(function(a, b){return a-b})
   console.log(sortedArray);
 
-  //this for loop will print out the multiples of the two numbers, in order 
+  let firstNum = sortedArray[0];
+  let secondNum = sortedArray[1];
+
+  //this for loop will print out the multiples of the two numbers, in order
   let j = 1;
   let k = 1;
-  for(let i = 1; i < 15; i++){
+  let currentMultiple = 0;
+  while(true){
     if(firstNum * j < secondNum * k){
-      console.log(firstNum *j)
+      //console.log(firstNum *j)
+      currentMultiple = firstNum * j;
       j++
     }
     else{
-      console.log(secondNum * k)
+      //console.log(secondNum * k)
+      currentMultiple = secondNum * k;
       k++
     }
+    let flag = false;
+    if((currentMultiple % firstNum == 0) && (currentMultiple % secondNum == 0) ){
+      console.log('we found the lowest common multiple evenly divide by both parameters: ' + currentMultiple)
+      flag = true;
+    }
+    let matchCounter = 0;
+  for(let m = firstNum + 1; m <= secondNum -1; m++){
+    if(currentMultiple % m == 0){
+      console.log(currentMultiple + " currentMultiple % " + m + " == 0")
+      matchCounter++;
+    }
+    if(matchCounter == (secondNum - firstNum - 1) && flag == true){
+      return currentMultiple;
+    }
+
+  }
+  
   }
 
   // next assign each one to a variable, and see if it's divisible by both each
@@ -44,5 +65,5 @@ function smallestCommons(arr) {
   // we have found the solution
   return arr;
 }
-smallestCommons([3,7]);
+smallestCommons([1,5]);
 
