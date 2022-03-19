@@ -12,7 +12,8 @@ sumTwoAnd(3) returns 5.
 If either argument isn't a valid number, return undefined.
 */
 
-
+// https://javascript.info/new-function
+// https://javascript.info/currying-partials
 
 function addTogether() {
   console.log("arguments.length is: " + arguments.length)
