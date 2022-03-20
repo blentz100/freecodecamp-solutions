@@ -14,23 +14,28 @@ If either argument isn't a valid number, return undefined.
 
 // https://javascript.info/new-function
 // https://javascript.info/currying-partials
+// https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/functional-programming/introduction-to-currying-and-partial-application
 
-function addTogether() {
-  console.log("arguments.length is: " + arguments.length)
+function addTogether(firstNum) {
+  console.log(typeof arguments[0] !== 'number');
+  console.log(typeof arguments[1] !== 'number');
+  if((typeof arguments[0] !== 'number') || (typeof arguments[1] !== 'number') && arguments.length == 2){
+    console.log('got in the first if')
+    return undefined;
+  }
   if(arguments.length == 2){
     console.log('got in the if')
     return (arguments[0] + arguments[1])
   }
   else{
-    console.log('got in the else....')
-    return (function(firstNum){
+    //this is the curried function
+    return function(secondNum){
       console.log('got in the else')
+      //remember, this arguments[0] is referencing this second anonymous function, not the parent function
       console.log('arguments[0] is: ' + arguments[0])
-      console.log('firstNum is: ' + firstNum)
-      return firstNum;
-    })
+      console.log('firstNum is: ' + secondNum)
+      return firstNum + secondNum;
+    }
   }
-  
 }
-
 console.log(addTogether(5)(7));
