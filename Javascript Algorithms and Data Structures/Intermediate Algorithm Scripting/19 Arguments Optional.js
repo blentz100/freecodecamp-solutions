@@ -31,11 +31,15 @@ function addTogether(firstNum) {
     //this is the curried function
     return function(secondNum){
       console.log('got in the else')
+      if(typeof arguments[0] !== 'number'){
+        return undefined;
+      }
       //remember, this arguments[0] is referencing this second anonymous function, not the parent function
       console.log('arguments[0] is: ' + arguments[0])
-      console.log('firstNum is: ' + secondNum)
+      console.log('typeof arguments[0] is: ' + typeof arguments[0])
+      console.log('secondNum is: ' + secondNum)
       return firstNum + secondNum;
     }
   }
 }
-console.log(addTogether(5)(7));
+console.log(addTogether(2)([3]));
