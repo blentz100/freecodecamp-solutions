@@ -20,11 +20,12 @@ function orbitalPeriod(arr) {
 
   return arr.map(element => {
     let newPlanetObject = {
-      planetName: element.name,
+      name: element.name,
       orbitalPeriod: 
-        2 * Math.PI * Math.sqrt(
-          Math.pow(element.avgAlt,3) / (GM * earthRadius)
-          )
+        Math.round(2 * Math.PI * 
+        (Math.sqrt(
+          Math.pow(element.avgAlt + earthRadius ,3) / (GM )
+          )))
         
     }
     return newPlanetObject;
