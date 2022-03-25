@@ -5,24 +5,28 @@ Flatten a nested array. You must account for varying levels of nesting.
 */
 
 function steamrollArray(arr) {
-  let flatArr = []
+let flatArr = [];
   for(let i = 0; i < arr.length; i++){
-    console.log('*top')
-    if(typeof arr[i] !== "object"){
-      console.log(' element is: ' + arr[i])
-      flatArr.push(arr[i]);
-      console.log(' flatArr is: ' + flatArr)
+    console.log("--    top of loop number " + i)
+    console.log("arr[i] is:" , arr[i])
+    //if arr[i] !== object, then push it into flattened array
+    if(typeof arr[i] !== "object" ){
+      console.log('arr[i] is not an object, so pushing it to flatArr')
+      flatArr.push(arr[i])
     }
-    else{
-      console.log(' inside else')
-      console.log(" " + typeof arr[i] + " is " + arr[i])
-      //at this point, we don't want to push an object into the array, we want to go down one level into the object and return that.
-      steamrollArray(arr[i]);
-      console.log(' flatArr is: ' + flatArr)
-    }
-    console.log('*bottom \n')
+
+    //if arr[i] == object, then we need to go one level down somehow
+      if(typeof arr[i] == "object"){
+        console.log('arr[i] is an object')
+        steamrollArray(arr[i])
+      }
+  
+
+
+    console.log("-- bottom of loop number " + i + "\n")
   }
+  
   return flatArr;
 }
 
-console.log(steamrollArray([1, [2], [3, [[4]]]]));
+console.log(steamrollArray([1,[2]]));
