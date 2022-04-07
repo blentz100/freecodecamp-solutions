@@ -36,42 +36,44 @@ See below for an example of a cash-in-drawer array:
   ["ONE HUNDRED", 100]
 ]
 */
+
  function checkCashRegister(price, cash, cid) {
    let change, runningTotal = 0;
    let status = ""
-   let updatedCid = cid.reverse();
+   let drawer = cid.reverse();
 
    // first, determine the total amount of change that needs to be returned
    let changeDue = cash - price;
    console.log("changeDue", changeDue)
 
    //then we need to add the denominations to the array
-   updatedCid[0].push(100)
-   updatedCid[1].push(20)
-   updatedCid[2].push(10)
-   updatedCid[3].push(5)
-   updatedCid[4].push(1)
-   updatedCid[5].push(.25)
-   updatedCid[6].push(.10)
-   updatedCid[7].push(.5)
-   updatedCid[8].push(.1)
-   console.log(updatedCid)
+   drawer[0].push(100)
+   drawer[1].push(20)
+   drawer[2].push(10)
+   drawer[3].push(5)
+   drawer[4].push(1)
+   drawer[5].push(.25)
+   drawer[6].push(.10)
+   drawer[7].push(.5)
+   drawer[8].push(.1)
+   console.log(drawer)
 
-  // loop through cid, starting from the largest denomination to  the smallest and see if you can add up to exactly the change due
-   for(let i = 0 ; i < updatedCid.length; i++){
-     console.log(updatedCid[i])
-     while (updatedCid[i][2] <= changeDue){
-       console.log('updatedCid[i][2]', updatedCid[i][2])
+  // loop through drawer, starting from the largest denomination to the smallest and see if you can add up to exactly the change due
+   for(let i = 0 ; i < drawer.length; i++){
+      
+      //while (drawer[i][2] <= changeDue && drawer[i][1] => changeDue )
+      // we need to deduct [i][2] from [i][1]
+      // we need to that same amount to runningTotal;
+      // this area needs more work
+      if(drawer[i][2] <= changeDue){
+       console.log('\ndrawer[i][2]', drawer[i][2])
        console.log('runningTotal', runningTotal)
-       runningTotal += updatedCid[i][2]
-       updatedCid[i][2] -= updatedCid[i][2]
-       console.log('updatedCid[i][2]', updatedCid[i][2])
-       console.log('runningTotal', runningTotal)
+       runningTotal += drawer[i][2]
+       drawer[i][2] -= drawer[i][2]
+       console.log('drawer[i][2]', drawer[i][2])
+       console.log('runningTotal', runningTotal, '\n')
      }
    }
-
-   
-  
   return 999;
 }
 
