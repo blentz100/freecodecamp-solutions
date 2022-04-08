@@ -66,17 +66,18 @@ function checkCashRegister(price, cash, cid) {
   // loop through drawer, starting from the largest denomination to the smallest and see if you can add up to exactly the change due
   let j = 0;
    for(let i = 0 ; i < drawer.length; i++){
-
+      
       //while (drawer[i][2] <= changeDue && drawer[i][1] >= changeDue && runningTotal < changeDue )
       // we need to deduct [i][2] from [i][1]
       // we need to that same amount to runningTotal;
       // each time we drop into the while loop we also need to update solutionObject
       // we need a way to track the index inside the solutionObject too, j
-      // got the first test case passing
+      
       while((drawer[i][2] <= changeDue) && 
-          (drawer[i][1] >= changeDue) && 
+          (drawer[i][1] >= 0) && 
           (runningTotal < changeDue)){
-       console.log('\ndrawer[i][2]', drawer[i][2])
+      console.log('\nchangeDue is: ' + changeDue);
+       console.log('drawer[i][2]', drawer[i][2])
        console.log('runningTotal', runningTotal)
        runningTotal += drawer[i][2]
        drawer[i][1] = drawer[i][1] - drawer[i][2]
@@ -88,4 +89,4 @@ function checkCashRegister(price, cash, cid) {
   return solutionObject;
 }
 
-console.log(checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
+console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
