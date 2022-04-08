@@ -37,7 +37,7 @@ See below for an example of a cash-in-drawer array:
 ]
 */
 
- function checkCashRegister(price, cash, cid) {
+function checkCashRegister(price, cash, cid) {
    let change, runningTotal = 0;
    let status = ""
    let drawer = cid.reverse();
@@ -58,24 +58,34 @@ See below for an example of a cash-in-drawer array:
    drawer[8].push(.1)
    console.log(drawer)
 
+   let solutionObject ={
+     status:"OPEN",
+     change: []
+   }
+
   // loop through drawer, starting from the largest denomination to the smallest and see if you can add up to exactly the change due
+  let j = 0;
    for(let i = 0 ; i < drawer.length; i++){
-      
-      //while (drawer[i][2] <= changeDue && drawer[i][1] => changeDue )
+
+      //while (drawer[i][2] <= changeDue && drawer[i][1] >= changeDue && runningTotal < changeDue )
       // we need to deduct [i][2] from [i][1]
       // we need to that same amount to runningTotal;
-      // this area needs more work
-      if(drawer[i][2] <= changeDue){
+      // each time we drop into the while loop we also need to update solutionObject
+      // we need a way to track the index inside the solutionObject too, j
+      // got the first test case passing
+      while((drawer[i][2] <= changeDue) && 
+          (drawer[i][1] >= changeDue) && 
+          (runningTotal < changeDue)){
        console.log('\ndrawer[i][2]', drawer[i][2])
        console.log('runningTotal', runningTotal)
        runningTotal += drawer[i][2]
-       drawer[i][2] -= drawer[i][2]
+       drawer[i][1] = drawer[i][1] - drawer[i][2]
+       solutionObject.change[j] = [drawer[i][0],runningTotal];
        console.log('drawer[i][2]', drawer[i][2])
        console.log('runningTotal', runningTotal, '\n')
      }
    }
-  return 999;
+  return solutionObject;
 }
 
-checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
-
+console.log(checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
