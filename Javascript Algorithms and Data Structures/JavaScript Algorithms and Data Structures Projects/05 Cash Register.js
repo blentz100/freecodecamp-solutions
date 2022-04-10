@@ -36,7 +36,6 @@ See below for an example of a cash-in-drawer array:
   ["ONE HUNDRED", 100]
 ]
 */
-
 function checkCashRegister(price, cash, cid) {
    let change, runningTotal = 0;
    let status = ""
@@ -53,9 +52,9 @@ function checkCashRegister(price, cash, cid) {
    drawer[3].push(5)
    drawer[4].push(1)
    drawer[5].push(.25)
-   drawer[6].push(.10)
-   drawer[7].push(.5)
-   drawer[8].push(.1)
+   drawer[6].push(.1)
+   drawer[7].push(.05)
+   drawer[8].push(.01)
    console.log(drawer)
 
     // in the solutionObject, give it all denominations to start, but then remove the ones that are empty at the end with a filter
@@ -75,16 +74,16 @@ function checkCashRegister(price, cash, cid) {
       // we need to that same amount to runningTotal;
       // each time we drop into the while loop we also need to update solutionObject
       // we need a way to track the index inside the solutionObject too, j
-      
+     
       while((drawer[i][2] <= changeDue) && 
           (drawer[i][1] >= drawer[i][2]) && 
-          (runningTotal + drawer[i][2] <= changeDue)){
+          ((runningTotal + drawer[i][2]) <= changeDue)){
       console.log('changeDue is: ' + changeDue);
        console.log('drawer[i][1]', drawer[i][1])
        console.log('runningTotal', runningTotal)
        console.log('runningDenomination', runningDenomination)
        runningDenomination += drawer[i][2]
-       runningTotal += drawer[i][2]
+       runningTotal = runningTotal + drawer[i][2]
        drawer[i][1] = drawer[i][1] - drawer[i][2]
        solutionObject.change[i] = [drawer[i][0],runningDenomination];
        console.log('drawer[i][1]', drawer[i][1])
@@ -94,19 +93,25 @@ function checkCashRegister(price, cash, cid) {
        console.log(solutionObject)
        console.log('')
      }
+      console.log('*****')
+      /*
+    Had this issue
+    https://stackoverflow.com/questions/588004/is-floating-point-math-broken
+*/
+      console.log(runningTotal, drawer[i][2], changeDue)
+      console.log(runningTotal + drawer[i][2], changeDue)
+      console.log(Math.floor(runningTotal + drawer[i][2]) <= changeDue)
+      console.log('*****')
    }
 
    //filter out any denominations that have 0 in them before returning
    //const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
    //const result = words.filter(word => word.length > 6);
-  console.log('------')
   const filteredSolutionObject = solutionObject.change.filter(item => item[1] > 0)
-  console.log(filteredSolutionObject)
   solutionObject.change = filteredSolutionObject
-  console.log('------')
-
+  
   return solutionObject;
 }
 
-console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
+console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]))
 
