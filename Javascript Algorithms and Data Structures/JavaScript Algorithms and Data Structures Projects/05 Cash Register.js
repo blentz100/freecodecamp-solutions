@@ -1,5 +1,5 @@
 /*
-Cash Register
+cash Register
 Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price), payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
 
 cid is a 2D array listing available currency.
@@ -58,15 +58,18 @@ function checkCashRegister(price, cash, cid) {
    drawer[8].push(.1)
    console.log(drawer)
 
+    // in the solutionObject, give it all denominations to start, but then remove the ones that are empty at the end with a filter
    let solutionObject ={
      status:"OPEN",
-     change: []
+     change: [["ONE HUNDRED", 0], ["TWENTY", 0], ["TEN", 0], ["FIVE", 0], ["ONE", 0], ["QUARTER", 0],
+     ["DIME", 0], ["NICKEL", 0], ["PENNY", 0]] 
    }
 
   // loop through drawer, starting from the largest denomination to the smallest and see if you can add up to exactly the change due
   let j = 0;
    for(let i = 0 ; i < drawer.length; i++){
-      
+      console.log('\ndrawer[' + i + '] :' + drawer[i])
+      let runningDenomination = 0;
       //while (drawer[i][2] <= changeDue && drawer[i][1] >= changeDue && runningTotal < changeDue )
       // we need to deduct [i][2] from [i][1]
       // we need to that same amount to runningTotal;
@@ -74,19 +77,36 @@ function checkCashRegister(price, cash, cid) {
       // we need a way to track the index inside the solutionObject too, j
       
       while((drawer[i][2] <= changeDue) && 
-          (drawer[i][1] >= 0) && 
-          (runningTotal < changeDue)){
-      console.log('\nchangeDue is: ' + changeDue);
-       console.log('drawer[i][2]', drawer[i][2])
+          (drawer[i][1] >= drawer[i][2]) && 
+          (runningTotal + drawer[i][2] <= changeDue)){
+      console.log('changeDue is: ' + changeDue);
+       console.log('drawer[i][1]', drawer[i][1])
        console.log('runningTotal', runningTotal)
+       console.log('runningDenomination', runningDenomination)
+       runningDenomination += drawer[i][2]
        runningTotal += drawer[i][2]
        drawer[i][1] = drawer[i][1] - drawer[i][2]
-       solutionObject.change[j] = [drawer[i][0],runningTotal];
-       console.log('drawer[i][2]', drawer[i][2])
-       console.log('runningTotal', runningTotal, '\n')
+       solutionObject.change[i] = [drawer[i][0],runningDenomination];
+       console.log('drawer[i][1]', drawer[i][1])
+       console.log('runningTotal', runningTotal)
+       console.log('runningDenomination', runningDenomination)
+       console.log('solutionObject is: ')
+       console.log(solutionObject)
+       console.log('')
      }
    }
+
+   //filter out any denominations that have 0 in them before returning
+   //const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+   //const result = words.filter(word => word.length > 6);
+  console.log('------')
+  const filteredSolutionObject = solutionObject.change.filter(item => item[1] > 0)
+  console.log(filteredSolutionObject)
+  solutionObject.change = filteredSolutionObject
+  console.log('------')
+
   return solutionObject;
 }
 
 console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
+
