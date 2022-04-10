@@ -12,6 +12,8 @@ github and to document my progress.
 
 Star this repo if you'd like to follow along. 
 
+Making a small change (this line), to test out pushing code and that it works. Feel free to delete this line later.
+
 [<img
 src="https://github.com/blentz100/freecodecamp-solutions/blob/main/images/responsive_cert.png?raw=true"
 alt="drawing" width="500"/>](https://freecodecamp.org/certification/fccf24ff13b-6c51-46b5-9471-8e3644a03c32/responsive-web-design)
