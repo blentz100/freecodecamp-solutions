@@ -57,15 +57,13 @@ function checkCashRegister(price, cash, cid) {
    drawer[8].push(.01)
    console.log(drawer)
 
-    // in the solutionObject, give it all denominations to start, but then remove the ones that are empty at the end with a filter
+    // in the solutionObject, give it all denominations to start
    let solutionObject ={
      status:"OPEN",
-     change: [["ONE HUNDRED", 0], ["TWENTY", 0], ["TEN", 0], ["FIVE", 0], ["ONE", 0], ["QUARTER", 0],
-     ["DIME", 0], ["NICKEL", 0], ["PENNY", 0]] 
+     change: [["ONE HUNDRED", 0], ["TWENTY", 0], ["TEN", 0], ["FIVE", 0], ["ONE", 0], ["QUARTER", 0], ["DIME", 0], ["NICKEL", 0], ["PENNY", 0]] 
    }
 
   // loop through drawer, starting from the largest denomination to the smallest and see if you can add up to exactly the change due
-  let j = 0;
    for(let i = 0 ; i < drawer.length; i++){
       console.log('\ndrawer[' + i + '] :' + drawer[i])
       let runningDenomination = 0;
@@ -77,7 +75,7 @@ function checkCashRegister(price, cash, cid) {
      
       while((drawer[i][2] <= changeDue) && 
           (drawer[i][1] >= drawer[i][2]) && 
-          ((runningTotal + drawer[i][2]) <= changeDue)){
+          (roundToTwo(runningTotal + drawer[i][2]) <= changeDue)){
       console.log('changeDue is: ' + changeDue);
        console.log('drawer[i][1]', drawer[i][1])
        console.log('runningTotal', runningTotal)
@@ -94,24 +92,24 @@ function checkCashRegister(price, cash, cid) {
        console.log('')
      }
       console.log('*****')
-      /*
-    Had this issue
-    https://stackoverflow.com/questions/588004/is-floating-point-math-broken
-*/
-      console.log(runningTotal, drawer[i][2], changeDue)
-      console.log(runningTotal + drawer[i][2], changeDue)
-      console.log(Math.floor(runningTotal + drawer[i][2]) <= changeDue)
+      console.log(roundToTwo(runningTotal + drawer[i][2]) <= changeDue)
+      console.log()
       console.log('*****')
    }
 
    //filter out any denominations that have 0 in them before returning
-   //const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-   //const result = words.filter(word => word.length > 6);
   const filteredSolutionObject = solutionObject.change.filter(item => item[1] > 0)
   solutionObject.change = filteredSolutionObject
   
   return solutionObject;
 }
 
-console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]))
+//Problem: https://stackoverflow.com/questions/588004/is-floating-point-math-broken
+//Solution: https://www.delftstack.com/howto/javascript/javascript-round-to-2-decimal-places/
+//Created this helper function and call it inside while loop to get accurate results
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2")  + "e-2");
+}
 
+
+console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]))
