@@ -36,6 +36,7 @@ See below for an example of a cash-in-drawer array:
   ["ONE HUNDRED", 100]
 ]
 */
+
 function checkCashRegister(price, cash, cid) {
    let change, runningTotal = 0;
    let status = ""
@@ -60,7 +61,7 @@ function checkCashRegister(price, cash, cid) {
     // in the solutionObject, give it all denominations to start
    let solutionObject ={
      status:"OPEN",
-     change: [["ONE HUNDRED", 0], ["TWENTY", 0], ["TEN", 0], ["FIVE", 0], ["ONE", 0], ["QUARTER", 0], ["DIME", 0], ["NICKEL", 0], ["PENNY", 0]] 
+     change: [["ONE HUNDRED", 0], ["TWENTY", 0], ["TEN", 0], ["FIVE", 0], ["ONE", 0], ["QUARTER", 0], ["DIME", 0], ["NICKEL", 0], ["PENNY", 0]]
    }
 
   // loop through drawer, starting from the largest denomination to the smallest and see if you can add up to exactly the change due
@@ -72,18 +73,18 @@ function checkCashRegister(price, cash, cid) {
       // we need to that same amount to runningTotal;
       // each time we drop into the while loop we also need to update solutionObject
       // we need a way to track the index inside the solutionObject too, j
-     
-      while((drawer[i][2] <= changeDue) && 
-          (drawer[i][1] >= drawer[i][2]) && 
+
+      while((drawer[i][2] <= changeDue) &&
+          (drawer[i][1] >= drawer[i][2]) &&
           (roundToTwo(runningTotal + drawer[i][2]) <= changeDue)){
       console.log('changeDue is: ' + changeDue);
        console.log('drawer[i][1]', drawer[i][1])
        console.log('runningTotal', runningTotal)
        console.log('runningDenomination', runningDenomination)
-       runningDenomination += drawer[i][2]
-       runningTotal = runningTotal + drawer[i][2]
-       drawer[i][1] = drawer[i][1] - drawer[i][2]
-       solutionObject.change[i] = [drawer[i][0],runningDenomination];
+       runningDenomination = roundToTwo(runningDenomination) + roundToTwo(drawer[i][2])
+       runningTotal = roundToTwo(runningTotal + drawer[i][2])
+       drawer[i][1] = roundToTwo(drawer[i][1] - drawer[i][2])
+       solutionObject.change[i] = [drawer[i][0],roundToTwo(runningDenomination)];
        console.log('drawer[i][1]', drawer[i][1])
        console.log('runningTotal', runningTotal)
        console.log('runningDenomination', runningDenomination)
@@ -91,16 +92,25 @@ function checkCashRegister(price, cash, cid) {
        console.log(solutionObject)
        console.log('')
      }
-      console.log('*****')
-      console.log(roundToTwo(runningTotal + drawer[i][2]) <= changeDue)
-      console.log()
-      console.log('*****')
+    
    }
 
-   //filter out any denominations that have 0 in them before returning
-  const filteredSolutionObject = solutionObject.change.filter(item => item[1] > 0)
-  solutionObject.change = filteredSolutionObject
-  
+    //account for the INSUFFICIENT_FUNDS case
+     if(runningTotal < changeDue){
+       solutionObject.status = 'INSUFFICIENT_FUNDS'
+       solutionObject.change = [];
+       return solutionObject
+     }
+
+     //account for the CLOSED case
+     //check if cash in drawer matches the solution Object
+
+
+    //account for the OPEN case
+    //filter out any denominations that have 0 in them before returning
+      const filteredSolutionObject = solutionObject.change.filter(item => item[1] > 0)
+      solutionObject.change = filteredSolutionObject
+
   return solutionObject;
 }
 
@@ -112,4 +122,4 @@ function roundToTwo(num) {
 }
 
 
-console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]))
+console.log(checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]))
