@@ -36,7 +36,6 @@ See below for an example of a cash-in-drawer array:
   ["ONE HUNDRED", 100]
 ]
 */
-
 function checkCashRegister(price, cash, cid) {
    let change, runningTotal = 0;
    let status = ""
@@ -45,6 +44,31 @@ function checkCashRegister(price, cash, cid) {
    // first, determine the total amount of change that needs to be returned
    let changeDue = cash - price;
    console.log("changeDue", changeDue)
+
+    //account for the CLOSED case
+    //check if cash in drawer matches the changeDue
+    //we need a way to add up all the money in the drawer
+    //use the reduce method to get the total
+     console.log('\n*************************')
+     console.log('drawer:')
+     console.log(drawer)
+     let totalInDrawer = drawer.reduce((sum, denomination) => sum + denomination[1], 0)
+     console.log(totalInDrawer)
+     console.log("totalInDrawer", totalInDrawer)
+     if (changeDue == otalInDrawer){
+       console.log('xxxx')
+       let solutionObject = { 
+        status:"CLOSED",
+        change: drawer.reverse()
+        }
+        console.log('solutionObject is: ')
+        console.log(solutionObject)
+        console.log('************************\n')
+        return solutionObject;
+     }
+     console.log('*************************\n')
+
+
 
    //then we need to add the denominations to the array
    drawer[0].push(100)
@@ -81,7 +105,8 @@ function checkCashRegister(price, cash, cid) {
        console.log('drawer[i][1]', drawer[i][1])
        console.log('runningTotal', runningTotal)
        console.log('runningDenomination', runningDenomination)
-       runningDenomination = roundToTwo(runningDenomination) + roundToTwo(drawer[i][2])
+       runningDenomination = runningDenomination + drawer[i][2]
+       runningDenomination = roundToTwo(runningDenomination)
        runningTotal = roundToTwo(runningTotal + drawer[i][2])
        drawer[i][1] = roundToTwo(drawer[i][1] - drawer[i][2])
        solutionObject.change[i] = [drawer[i][0],roundToTwo(runningDenomination)];
@@ -102,9 +127,7 @@ function checkCashRegister(price, cash, cid) {
        return solutionObject
      }
 
-     //account for the CLOSED case
-     //check if cash in drawer matches the solution Object
-
+    
 
     //account for the OPEN case
     //filter out any denominations that have 0 in them before returning
