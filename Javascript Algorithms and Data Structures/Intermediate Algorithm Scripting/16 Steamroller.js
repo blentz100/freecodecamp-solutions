@@ -4,33 +4,61 @@ Flatten a nested array. You must account for varying levels of nesting.
 
 */
 
+let flatArr = [];
+
 function steamrollArray(arr) {
-  let flatArr = [];
-  for(let i = 0; i <= arr.length; i++){
-    console.log("\n--Top of loop number " + i + ". arr["+i+"] is:" , arr[i])
 
-    //we need to start with our base case
-    //is the base case the situation where all elements are not arrays?
-    //or is the base case the situation where just the arr[i] is not an array?
-    //maybe we just need to solve this first for an array of 1 element and then build from there?
-
-    //Base Case: if arr[i] is not an array, then push it into flattened array
-    if(Array.isArray(arr[i]) == false ){
-      console.log('\tarr['+i+'] is not an array, so pushing it to flatArr')
-      return(arr[i])
+  /*
+  for(let i = 0; i < arr.length; i++){
+    console.log("--    top of loop number " + i)
+    console.log("arr["+i+"] is:" , arr[i])
+    //if arr[i] !== object, then push it into flattened array
+    if(typeof arr[i] !== "object" ){
+      console.log('arr['+i+'] is not an object, so pushing it to flatArr')
+      flatArr.push(arr[i])
+      console.log('flatArr is: ' + flatArr)
     }
-
-   //if arr[i] is an array, then call steamrollArray(arr[i])
-    if(Array.isAray(arr[i]) == true ){
-        console.log('\tarr['+i+'] is an array, so calling steamrollArray(arr[i])')
-        return steamrollArray(arr[i]);
+    //if arr[i] == object, then we need to go one level down somehow
+    if(typeof arr[i] == "object"){
+        console.log('arr['+i+'] is an object, so calling steamrollArray(arr[i])')
+        steamrollArray(arr[i]);
     }
-
-    console.log("--Bottom of loop number " + i + "\n")
+    console.log("-- bottom of loop number " + i + "\n")
   }
-  console.log('\treturning flatArr and it is: ')
-  console.log('\t', flatArr)
+  console.log('return flatArr')
   return flatArr;
+  */
+
+console.log('arr is: ', arr)
+
+let testArr = Array.from(arguments);
+console.log('testArr is: ', testArr)
+let testAnswer = testArr.join()
+console.log('testAnswer is: ', testAnswer)
+
+let testAnswer2 = testAnswer.split(",")
+console.log('testAnswer2 is: ', testAnswer2)
+
+
+//loop through the whole testAnswer2, if we see numbers, convert them to integers
+for(let i = 0; i < testAnswer2.length; i++){
+  console.log(testAnswer2[i].charCodeAt())
+  if(testAnswer2[i].charCodeAt() >= 48 && testAnswer2[i].charCodeAt() <= 58) {
+    testAnswer2[i] = (parseInt(testAnswer2[i], 10))
+  }
+  // add a case for characters here like a and b
+
+  // add a case for the empty array
+
+  // add a case for the empty object
+}
+console.log('testAnswer2 is: ', testAnswer2)
+
+return testAnswer2;
+  
 }
 
-console.log(steamrollArray([[["a"]]],["b"]));
+console.log(steamrollArray([1, [], [3, [[4]]]]));
+console.log('\n')
+
+
