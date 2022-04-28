@@ -3,21 +3,29 @@
 I'm using the freecodecamp curriculum as a tool to reinforce and practice basic
 web development, Javascript and React skills.
 
-I completed the Responsive Web Design Certificate and now I'm working through
-the Javascript Algorithms and Data Structures Cert and the Front End Development
-Libraries Cert.
+I completed the Responsive Web Design Certificate and Javascript Algorithms and Data Structures Cert. I'm currently working through the Front End Development Libraries Cert.
 
 I'm adding the solutions here as a way to continue to practice working with git,
 github and to document my progress. 
 
 Star this repo if you'd like to follow along. 
 
-Making a small change (this line), to test out pushing code and that it works. Feel free to delete this line later.
 
 [<img
 src="https://github.com/blentz100/freecodecamp-solutions/blob/main/images/responsive_cert.png?raw=true"
 alt="drawing" width="500"/>](https://freecodecamp.org/certification/fccf24ff13b-6c51-46b5-9471-8e3644a03c32/responsive-web-design)
 
+| module | progress | notes
+| --- | --- | --- 
+| [Basic Javascript](https://github.com/blentz100/freecodecamp-solutions/tree/main/Javascript%20Algorithms%20and%20Data%20Structures/Basic%20Javascript) | 100%  | completed 1/18/21 |
+| [Regular Expressions](https://github.com/blentz100/freecodecamp-solutions/tree/main/Javascript%20Algorithms%20and%20Data%20Structures/Regular%20Expressions) | 100%  | completed 12/8/21 |
+| [Debugging](https://github.com/blentz100/freecodecamp-solutions/tree/main/Javascript%20Algorithms%20and%20Data%20Structures/Debugging) | 100%  | completed 12/7/21 |
+| [Basic Data Structures](https://github.com/blentz100/freecodecamp-solutions/tree/main/Javascript%20Algorithms%20and%20Data%20Structures/Basic%20Data%20Structures) | 100% | completed 12/17/21 |
+| [Basic Algorithm Scripting](https://github.com/blentz100/freecodecamp-solutions/tree/main/Javascript%20Algorithms%20and%20Data%20Structures/Basic%20Algorithm%20Scripting) | 100%  | completed 1/1/22 |
+| [Object Oriented Programming](https://github.com/blentz100/freecodecamp-solutions/tree/main/Javascript%20Algorithms%20and%20Data%20Structures/Object%20Oriented%20Programming) | 100% | completed 1/14/22 |
+| [Functional Programming](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#functional-programming) | 100%  | completed 2/8/22 |
+| [Intermediate Algorithm Scripting](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#intermediate-algorithm-scripting) | 100% | completed 4/18/22 |
+| [Javascript Algorithm and Data Structure Projects](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#javascript-algorithms-and-data-structures-projects) | 100% | completed 4/13/22 |
 
 ## Notes
 
