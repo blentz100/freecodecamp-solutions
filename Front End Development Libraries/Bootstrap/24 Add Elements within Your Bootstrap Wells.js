@@ -1,8 +1,10 @@
 /*
-Apply the Default Bootstrap Button Style
-Bootstrap has another button class called btn-default.
+Add Elements within Your Bootstrap Wells Now we're several div elements deep on
+each column of our row. This is as deep as we'll need to go. Now we can add our
+button elements.
 
-Apply both the btn and btn-default classes to each of your button elements.
+Nest three button elements within each of your div elements having the class
+name well.
 */ 
 
 <div class="container-fluid">
@@ -10,16 +12,16 @@ Apply both the btn and btn-default classes to each of your button elements.
   <div class="row">
     <div class="col-xs-6">
       <div class="well">
-        <button class="btn-default btn"></button>
-       <button class="btn-default btn"></button>
-       <button class="btn-default btn"></button>
+        <button class="well"></button>
+        <button class="well"></button>
+        <button class="well"></button>
       </div>
     </div>
     <div class="col-xs-6">
       <div class="well">
-        <button class="btn-default btn"></button>
-       <button class="btn-default btn"></button>
-       <button class="btn-default btn"></button>
+        <button class="well"></button>
+        <button class="well"></button>
+        <button class="well"></button>
       </div>
     </div>
   </div>
