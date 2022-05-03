@@ -1,0 +1,26 @@
+/*
+Create a Class to Target with jQuery Selectors
+Not every class needs to have corresponding CSS. Sometimes we create classes just for the purpose of selecting these elements more easily using jQuery.
+
+Give each of your button elements the class target.
+*/ 
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="well">
+        <button class="target btn btn-default"></button>
+        <button class="target btn btn-default"></button>
+        <button class="target btn btn-default"></button>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="well">
+       <button class="target btn btn-default"></button>
+        <button class="target btn btn-default"></button>
+        <button class="target btn btn-default"></button>
+      </div>
+    </div>
+  </div>
+</div>
