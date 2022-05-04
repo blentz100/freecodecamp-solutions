@@ -1,7 +1,6 @@
 # Freecodecamp Solutions
 
-I'm using the freecodecamp curriculum as a tool to reinforce and practice basic
-web development, Javascript and React skills.
+I'm using the freecodecamp curriculum as a tool to reinforce and practice basic web development, Javascript and React skills.
 
 I have completed the Responsive Web Design Certificate and Javascript Algorithms and Data Structures Certificate. I'm currently working through the Front End Development Libraries Cert.
 
@@ -10,10 +9,15 @@ github and to document my progress.
 
 Star this repo if you'd like to follow along. 
 
+## Certificates 
 
 [<img
 src="https://github.com/blentz100/freecodecamp-solutions/blob/main/images/responsive_cert.png?raw=true"
-alt="drawing" width="500"/>](https://freecodecamp.org/certification/fccf24ff13b-6c51-46b5-9471-8e3644a03c32/responsive-web-design)
+alt="drawing" width="700"/>](https://freecodecamp.org/certification/fccf24ff13b-6c51-46b5-9471-8e3644a03c32/responsive-web-design)
+
+[<img
+src="https://github.com/blentz100/freecodecamp-solutions/blob/main/images/fcc_js_cert.png?raw=true"
+alt="drawing" width="700"/>](https://www.freecodecamp.org/certification/fccf24ff13b-6c51-46b5-9471-8e3644a03c32/javascript-algorithms-and-data-structures)
 
 | module | progress | notes
 | --- | --- | --- 
@@ -27,9 +31,11 @@ alt="drawing" width="500"/>](https://freecodecamp.org/certification/fccf24ff13b-
 | [Intermediate Algorithm Scripting](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#intermediate-algorithm-scripting) | 100% | completed 4/18/22 |
 | [Javascript Algorithm and Data Structure Projects](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#javascript-algorithms-and-data-structures-projects) | 100% | completed 4/13/22 |
 
+
+
 ## Notes
 
-### Workflow for populating filenames for all challenges
+### My Workflow for populating filenames for all challenges
 
 - Copy and paste the challenge names from the browser into a vim buffer called ```filenames.txt```
 - Use find and replace to get rid of extra stuff: ```%s/Not Passed//g``` https://linuxize.com/post/vim-find-replace/
