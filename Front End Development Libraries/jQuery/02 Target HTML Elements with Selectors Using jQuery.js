@@ -18,7 +18,7 @@ lots of cool effects in there
 
 <script>
   $(document).ready(function() {
-    $("button").addClass("animated rubberBand")
+    $("button").addClass("animated bounce")
 
   });
 </script>
