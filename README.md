@@ -3,7 +3,7 @@
 I'm using the freecodecamp curriculum as a tool to reinforce and practice basic
 web development, Javascript and React skills.
 
-I completed the Responsive Web Design Certificate and Javascript Algorithms and Data Structures Cert. I'm currently working through the Front End Development Libraries Cert.
+I have completed the Responsive Web Design Certificate and Javascript Algorithms and Data Structures Certificate. I'm currently working through the Front End Development Libraries Cert.
 
 I'm adding the solutions here as a way to continue to practice working with git,
 github and to document my progress. 
