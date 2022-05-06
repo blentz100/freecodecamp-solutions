@@ -46,6 +46,7 @@ alt="drawing" width="700"/>](https://www.freecodecamp.org/certification/fccf24ff
     1. ```q``` stop recording
     1. ```@a``` execute macro once
     1. ```@@``` repeat last macro
+    1. ```23@a``` will repeat the a macro 23 times
 
 
 - Insert numbers on the front of each line. Make sure to put leading 0s on single digit numbers so it sorts properly
