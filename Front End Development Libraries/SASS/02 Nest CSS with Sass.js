@@ -23,4 +23,22 @@ children of .blog-post element. For testing purposes, the h1 should come before
 the p element.
 */
 
+<style type='text/scss'>
+  .blog-post {
+    h1 {
+      text-align: center;
+      color: blue;
+    }
+    p {
+      font-size: 20px;
+    }
+
+  }
+  
+</style>
+
+<div class="blog-post">
+  <h1>Blog Title</h1>
+  <p>This is a paragraph</p>
+</div>
 
