@@ -16,7 +16,10 @@ class ControlledInput extends React.Component {
     console.log('event.target.value is: ')
     console.log(event.target.value)
     
-    //struggled getting this section correct because I was using the syntax from the "Use State to Toggle an ElementPassed" challenge. No need for that complex syntax here because we don't need to know the previous state when updating the state.
+    //struggled getting this section correct because I was using the syntax
+    //from the "Use State to Toggle an ElementPassed" challenge. No need for
+    //that complex syntax here because we don't need to know the previous state
+    //when updating the state.
     this.setState({
       
       input: event.target.value
