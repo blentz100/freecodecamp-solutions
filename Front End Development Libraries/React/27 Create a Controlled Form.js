@@ -11,8 +11,11 @@ Note: You also must call event.preventDefault() in the submit handler, to preven
 Finally, create an h1 tag after the form which renders the submit value from the component's state. You can then type in the form and click the button (or press enter), and you should see your input rendered to the page.
 
 */ 
+// Good explanation of a controlled input:
+// https://krasimir.gitbooks.io/react-in-patterns/content/chapter-05/
 
 class MyForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
